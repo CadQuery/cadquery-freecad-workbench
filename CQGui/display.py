@@ -13,7 +13,8 @@ def show_object(cq_object, options=None):
     mdi_area = mw.findChild(QtGui.QMdiArea)
     active_subwindow = mdi_area.activeSubWindow()
     if active_subwindow:
-        doc_name = active_subwindow.windowTitle().split(".py")[0]
+        doc_name = active_subwindow.windowTitle().split(" :")[0]
+        doc_name = doc_name.split(".py")[0]
 
     # Create or find the document that corresponds to this code pane
     # If the matching 3D view has been closed, we need to open a new one
