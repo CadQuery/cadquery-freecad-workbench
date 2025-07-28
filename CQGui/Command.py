@@ -73,7 +73,7 @@ class Build123DInstall:
         import subprocess
         print("Starting to install Build123d...")
         subprocess.run(["python", "-m", "pip", "install", "--upgrade", "build123d"], capture_output=False)
-        subprocess.run(["python", "-m", "pip", "install", "--upgrade", "cadquery-ocp==7.7.2"], capture_output=False)
+        subprocess.run(["python", "-m", "pip", "install", "--upgrade", "cadquery-ocp==7.8.1.1.post1"], capture_output=False)
         print("Build123d has been installed! Please restart FreeCAD.")
 
 
