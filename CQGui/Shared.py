@@ -1,4 +1,8 @@
-# (c) 2014-2025 CadQuery Developers
+# SPDX-License-Identifier: Apache-2.0
+# SPDX-FileCopyrightText: 2014 CADQuery Developers
+# SPDX-FileNotice: Part of the CADQuery addon.
+
+
 import FreeCAD
 import FreeCADGui
 from PySide import QtGui

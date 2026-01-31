@@ -1,5 +1,7 @@
+# SPDX-License-Identifier: Apache-2.0
+# SPDX-FileCopyrightText: 2014 CADQuery Developers
+# SPDX-FileNotice: Part of the CADQuery addon.
 # -*- coding: utf-8 -*-
-# (c) 2014-2025 CadQuery Developers
 
 """Adds all of the commands that are used for the menus of the CadQuery module"""
 

@@ -1,3 +1,7 @@
+# SPDX-License-Identifier: Apache-2.0
+# SPDX-FileNotice: Part of the CADQuery addon.
+
+
 from CQGui.display import show_object
 
 # Register the show_object function as a global function

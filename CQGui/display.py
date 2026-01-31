@@ -1,3 +1,7 @@
+# SPDX-License-Identifier: Apache-2.0
+# SPDX-FileNotice: Part of the CADQuery addon.
+
+
 # Define the show_object function which CadQuery execution environments need to provide
 def show_object(cq_object, options=None):
     import cadquery as cq
