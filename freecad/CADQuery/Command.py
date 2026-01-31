@@ -4,9 +4,10 @@
 
 """Adds all of the commands that are used for the menus of the CadQuery module"""
 
-import FreeCADGui
-from .Qt import Gui as QtGui
-from CQGui.HelpDialog import HelpDialog
+from FreeCAD import Gui
+
+from .Qt.Widgets import QDockWidget
+from .HelpDialog import HelpDialog
 
 class CadQueryStableInstall:
     """
@@ -92,12 +93,16 @@ class CadQueryClearOutput:
 
     def Activated(self):
         # Grab our main window so we can interact with it
-        mw = FreeCADGui.getMainWindow()
+        mw = Gui.getMainWindow()
 
-        reportView = mw.findChild(QtGui.QDockWidget, "Report view")
+        reportView = mw.findChild(QDockWidget, "Report view")
 
+        if not reportView:
+            return
+        
         # Clear the view because it gets overwhelmed sometimes and won't scroll to the bottom
-        reportView.widget().clear()
+        widget = reportView.widget()
+        widget.clear()
 
 
 class CadQueryHelp:

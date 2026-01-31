@@ -3,17 +3,20 @@
 # SPDX-FileNotice: Part of the CADQuery addon.
 
 
-import FreeCAD
-import FreeCADGui
-from .Qt import Gui as QtGui
+from FreeCAD import getDocument , Gui
+from .Qt.Widgets import QMdiArea
 
 
 def clearActiveDocument():
     """Clears the currently active 3D view so that we can re-render"""
 
     # Grab our code editor so we can interact with it
-    mw = FreeCADGui.getMainWindow()
-    mdi = mw.findChild(QtGui.QMdiArea)
+    mw = Gui.getMainWindow()
+    mdi = mw.findChild(QMdiArea)
+
+    if not mdi:
+        return
+
     currentWin = mdi.currentSubWindow()
     if currentWin == None:
         return
@@ -24,7 +27,7 @@ def clearActiveDocument():
         winName= winName.replace('-', "__")
 
     try:
-        doc = FreeCAD.getDocument(winName)
+        doc = getDocument(winName)
 
         # Make sure we have an active document to work with
         if doc is not None:

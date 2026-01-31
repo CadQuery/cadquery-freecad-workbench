@@ -7,15 +7,18 @@ CadQuery GUI init module for FreeCAD
 This adds a workbench with a scripting editor to FreeCAD's GUI.
 """
 
-import Part, FreeCAD, FreeCADGui
-from CQGui.Command import (CadQueryHelp,
-                          CadQueryClearOutput,
-                          CadQueryStableInstall,
-                          CadQueryUnstableInstall,
-                          Build123DInstall)
+from FreeCAD import Gui
+
+from .Command import (
+    CadQueryHelp,
+    CadQueryClearOutput,
+    CadQueryStableInstall,
+    CadQueryUnstableInstall,
+    Build123DInstall
+)
 
 
-class CadQueryWorkbench (Workbench):
+class CadQueryWorkbench (Gui.Workbench):
     """CadQuery workbench for FreeCAD"""
       
     MenuText = "CadQuery"
@@ -39,10 +42,10 @@ class CadQueryWorkbench (Workbench):
 
 
 
-FreeCADGui.addCommand('CadQueryStableInstall', CadQueryStableInstall())
-FreeCADGui.addCommand('CadQueryUnstableInstall', CadQueryUnstableInstall())
-FreeCADGui.addCommand('Build123DInstall', Build123DInstall())
-FreeCADGui.addCommand('CadQueryClearOutput', CadQueryClearOutput())
-FreeCADGui.addCommand('CadQueryHelp', CadQueryHelp())
+Gui.addCommand('CadQueryStableInstall', CadQueryStableInstall())
+Gui.addCommand('CadQueryUnstableInstall', CadQueryUnstableInstall())
+Gui.addCommand('Build123DInstall', Build123DInstall())
+Gui.addCommand('CadQueryClearOutput', CadQueryClearOutput())
+Gui.addCommand('CadQueryHelp', CadQueryHelp())
 
-FreeCADGui.addWorkbench(CadQueryWorkbench())
+Gui.addWorkbench(CadQueryWorkbench())
