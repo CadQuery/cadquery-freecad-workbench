@@ -16,6 +16,7 @@
             <icon>CQGui/icons/CQ_Logo.svg</icon>
             <depend version_eq="2.5.2">cadquery</depend>
             <depend version_eq="7.7.2">cadquery-ocp</depend>
+            <depend version_eq='0.10.0'>build123d</depend>
         </workbench>
     </content>
 </package>
