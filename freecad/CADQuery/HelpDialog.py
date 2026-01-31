@@ -2,7 +2,7 @@
 # SPDX-FileNotice: Part of the CADQuery addon.
 
 
-from PySide import QtGui, QtCore
+from .Qt import Gui as QtGui, Core as QtCore
 
 class HelpDialog(QtGui.QDialog):
     def __init__(self, parent=None):

@@ -5,7 +5,7 @@
 
 import FreeCAD
 import FreeCADGui
-from PySide import QtGui
+from .Qt import Gui as QtGui
 
 
 def clearActiveDocument():

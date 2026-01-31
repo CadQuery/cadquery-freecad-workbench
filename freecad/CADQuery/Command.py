@@ -5,7 +5,7 @@
 """Adds all of the commands that are used for the menus of the CadQuery module"""
 
 import FreeCADGui
-from PySide import QtGui
+from .Qt import Gui as QtGui
 from CQGui.HelpDialog import HelpDialog
 
 class CadQueryStableInstall:

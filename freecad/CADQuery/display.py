@@ -6,7 +6,7 @@
 def show_object(cq_object, options=None):
     import cadquery as cq
     import Part, FreeCAD, FreeCADGui
-    from PySide import QtGui
+    from .Qt import Gui as QtGui
 
     # Create the object that the BRep data will be read into
     from io import BytesIO
