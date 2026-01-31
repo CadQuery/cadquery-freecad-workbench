@@ -1,6 +1,12 @@
 # SPDX-License-Identifier: Apache-2.0
 # SPDX-FileNotice: Part of the CADQuery addon.
 
+from .Qt.Widgets import QMdiArea
+from cadquery import Workplane , Shape
+from FreeCAD import activeDocument , getDocument , newDocument , Gui
+from Part import Shape as PartShape
+from io import BytesIO
+
 
 
 # Define the show_object function which CadQuery execution environments need to provide
