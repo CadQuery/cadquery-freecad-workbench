@@ -1,6 +1,11 @@
 Changes
 =======
 
+v2.1.1
+-----
+
+    * Command.py -> pin correct cadquery-ocp 7.8.1.1.post1 for build123d by @jdegenstein in https://github.com/CadQuery/cadquery-freecad-workbench/pull/169
+
 v2.1.0
 -----
 
