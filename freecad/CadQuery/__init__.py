@@ -1,0 +1,7 @@
+# SPDX-License-Identifier: Apache-2.0
+# SPDX-FileNotice: Part of the CadQuery addon.
+
+from .API import setupAPI
+
+
+setupAPI()

@@ -22,7 +22,7 @@ The menu items are as follows, and many of them have associated shortcut keys li
 * **Clear Output** (Alt+Shift+C) - Clears all output from the Report View. This comes in handy during a heavy script debugging session.
 * **Help** - Opens a help dialog with version information and documentation links.
 
-Selecting the CadQuery workbench does one aditional thing that makes CadQuery usable in FreeCAD. It temporarily (not preserved between restarts) adds a method called `show_object` to the Python globals. This allows FreeCAD's built-in Macro Editor to display and update CadQuery models by calling `show_object` and passing it a CadQuery `Workplane` object. This workbench does not yet support CadQuery `Assembly` objects.
+Selecting the CadQuery workbench does one additional thing that makes CadQuery usable in FreeCAD. It temporarily (not preserved between restarts) adds a method called `show` to the Python globals. This allows FreeCAD's built-in Macro Editor to display and update CadQuery models by calling `show` and passing it a CadQuery `Workplane` object. This workbench does not yet support CadQuery `Assembly` objects.
 
 ### First Coding Session
 
@@ -35,10 +35,10 @@ Clicking the `OK` button will create the macro/script and open it in a document 
 As a start, you can enter the following script in the macro document tab.
 
 ```python
-import cadquery as cq
+from CadQuery import Workplane , show
 
 # Create the model that we want to display
-box = cq.Workplane().box(10, 10, 5)
+box = Workplane().box(10, 10, 5)
 
 # You can output a message to FreeCAD's Report view
 print("I want to display something in the Report view")
@@ -47,7 +47,7 @@ print("I want to display something in the Report view")
 box.val().label = "My_Box"
 
 # Display the object in a new document tab
-show_object(box)
+show(box)
 ```
 
 Save the macro (Ctrl+S) and then click the green `Execute macro` button (Ctrl+F6).
@@ -61,10 +61,10 @@ The model should be displayed in a new document tab, and any subsequent executio
 ![CadQuery Workbench User Interface](cqfm_user_interface.png)
 
 
-An `options` parameter is used with the `show_object` method which allows the `color` and `alpha` (transparency) of the model to be changed. Below is a code example.
+An `options` parameter is used with the `show` method which allows the `color` and `alpha` (transparency) of the model to be changed. Below is a code example.
 
 ```python
-show_object(box, options={"color": (64, 164, 223), "alpha": 0.8})
+show(box, options={"color": (64, 164, 223), "alpha": 0.8})
 ```
 
 Notice that these options follow the pattern used in [CQ-editor](https://github.com/CadQuery/CQ-editor), which is done to ensure compatibility across CadQuery environments, but may not follow FreeCAD standards for color and transparency.

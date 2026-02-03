@@ -1,6 +1,16 @@
-from PySide import QtGui, QtCore
+# SPDX-License-Identifier: Apache-2.0
+# SPDX-FileNotice: Part of the CadQuery addon.
 
-class HelpDialog(QtGui.QDialog):
+
+from .Qt.Core import Slot , Qt
+
+from .Qt.Widgets import (
+    QDialogButtonBox ,
+    QDialog , QLabel ,
+    QGridLayout
+)
+
+class HelpDialog(QDialog):
     def __init__(self, parent=None):
         super(HelpDialog, self).__init__(parent)
         self.resize(300, 200)
@@ -11,31 +21,31 @@ class HelpDialog(QtGui.QDialog):
         import cadquery
 
         # Introduction to CadQuery line
-        intro_label = QtGui.QLabel('CadQuery is a parametric scripting API for creating CAD models and assemblies.')
+        intro_label = QLabel('CadQuery is a parametric scripting API for creating CAD models and assemblies.')
         intro_label.setWordWrap(True)
 
         # CadQuery version
         cadquery_ver = cadquery.__version__
-        version_label = QtGui.QLabel('CadQuery Version: ' + cadquery_ver)
+        version_label = QLabel('CadQuery Version: ' + cadquery_ver)
 
         # CadQuery contributors
-        cq_contribs = QtGui.QLabel('Authors: CadQuery Developers')
+        cq_contribs = QLabel('Authors: CadQuery Developers')
 
         # CadQuery documentation link
-        cq_docs_link = QtGui.QLabel('- <a href="https://cadquery.readthedocs.io">CadQuery Documentation</a>')
+        cq_docs_link = QLabel('- <a href="https://cadquery.readthedocs.io">CadQuery Documentation</a>')
         cq_docs_link.setOpenExternalLinks(True)
 
         # FreeCAD workbench documentation link
-        wb_docs_link = QtGui.QLabel('- <a href="https://github.com/CadQuery/cadquery-freecad-workbench/tree/master/docs">Workbench Documentation</a>')
+        wb_docs_link = QLabel('- <a href="https://github.com/CadQuery/cadquery-freecad-workbench/tree/master/docs">Workbench Documentation</a>')
         wb_docs_link.setOpenExternalLinks(True)
 
-        self.buttons = QtGui.QDialogButtonBox()
-        self.buttons.setOrientation(QtCore.Qt.Horizontal)
-        self.buttons.setStandardButtons(QtGui.QDialogButtonBox.Ok)
-        self.buttons.layout().setDirection(QtGui.QBoxLayout.LeftToRight)
+        self.buttons = QDialogButtonBox()
+        self.buttons.setOrientation(Qt.Orientation.Horizontal)
+        self.buttons.setStandardButtons(QDialogButtonBox.StandardButton.Ok)
+        self.buttons.setLayoutDirection(Qt.LayoutDirection.LeftToRight)
         self.buttons.accepted.connect(self.closeHelp)
 
-        grid = QtGui.QGridLayout()
+        grid = QGridLayout()
         grid.setContentsMargins(10, 10, 10, 10)
         grid.addWidget(intro_label, 0, 0)
         grid.addWidget(version_label, 1, 0)
@@ -46,6 +56,6 @@ class HelpDialog(QtGui.QDialog):
 
         self.setLayout(grid)
 
-    @QtCore.Slot(int)
+    @Slot(int)
     def closeHelp(self):
         self.accept()

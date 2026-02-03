@@ -1,24 +1,36 @@
+# SPDX-License-Identifier: Apache-2.0
+# SPDX-FileNotice: Part of the CadQuery addon.
+
 # Define the show_object function which CadQuery execution environments need to provide
 def show_object(cq_object, options=None):
-    import cadquery as cq
-    import Part, FreeCAD, FreeCADGui
-    from PySide import QtGui
+
+    from .Qt.Widgets import QMdiArea
+    from cadquery import Workplane , Shape
+    from FreeCAD import activeDocument , getDocument , newDocument , Gui
+    from Part import Shape as PartShape
+    from io import BytesIO
+
 
     # Create the object that the BRep data will be read into
-    from io import BytesIO
     brep_stream = BytesIO()
 
     # Keep track of the feature name
     feature_name = None
     # Check to see what type of object we are dealing with
-    if isinstance(cq_object, cq.Workplane):
-        # Handle the label if the user set it
-        if cq_object.val().label:
-            feature_name = cq_object.val().label
+    if isinstance(cq_object, Workplane):
 
-        # If we have a workplane, we need to convert it to a solid
-        cq_object.val().exportBrep(brep_stream)
-    elif isinstance(cq_object, cq.Shape):
+        value = cq_object.val()
+
+        if isinstance(value,Shape):
+
+            # Handle the label if the user set it
+            if value.label:
+                feature_name = value.label
+
+            # If we have a workplane, we need to convert it to a solid
+            value.exportBrep(brep_stream)
+
+    elif isinstance(cq_object, Shape):
         # If we have a solid, we can export it directly
         cq_object.exportBrep(brep_stream)
     elif hasattr(cq_object, "wrapped"):
@@ -41,8 +53,12 @@ def show_object(cq_object, options=None):
 
     # Get the title of the current document so that we can create/find the FreeCAD part window
     doc_name = "untitled"
-    mw = FreeCADGui.getMainWindow()
-    mdi_area = mw.findChild(QtGui.QMdiArea)
+    mw = Gui.getMainWindow()
+    mdi_area = mw.findChild(QMdiArea)
+
+    if not mdi_area:
+        return
+
     active_subwindow = mdi_area.activeSubWindow()
     if active_subwindow:
         doc_name = active_subwindow.windowTitle().split(" :")[0]
@@ -51,14 +67,14 @@ def show_object(cq_object, options=None):
     # Create or find the document that corresponds to this code pane
     # If the matching 3D view has been closed, we need to open a new one
     try:
-        FreeCAD.getDocument(doc_name)
+        getDocument(doc_name)
     except NameError:
-        FreeCAD.newDocument(doc_name)
-    ad = FreeCAD.activeDocument()
+        newDocument(doc_name)
+    ad = activeDocument()
 
     # Convert the CadQuery object to a BRep string and then into a FreeCAD part shape
     brep_string = brep_stream.getvalue().decode('utf-8')
-    part_shape = Part.Shape()
+    part_shape = PartShape()
     part_shape.importBrepFromString(brep_string)
 
     # options={"alpha":0.5, "color": (64, 164, 223)}

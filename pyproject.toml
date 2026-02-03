@@ -1,0 +1,14 @@
+
+[project]
+version = '0.0.0'
+name = 'Addon'
+
+requires-python = '>=3.11,<=3.12'
+
+dependencies = [
+    'freecad-stubs>=1.0.21' ,
+    'cadquery-ocp==7.7.2' ,
+    'build123d==0.10.0' ,
+    'cadquery==2.5.2' ,
+    'pyside6>=6.9.2'
+]
