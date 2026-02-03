@@ -1,6 +1,6 @@
 # SPDX-License-Identifier: Apache-2.0
-# SPDX-FileCopyrightText: 2014 CADQuery Developers
-# SPDX-FileNotice: Part of the CADQuery addon.
+# SPDX-FileCopyrightText: 2014 CadQuery Developers
+# SPDX-FileNotice: Part of the CadQuery addon.
 
 
 from FreeCAD import getDocument , Gui

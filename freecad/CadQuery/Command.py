@@ -1,6 +1,6 @@
 # SPDX-License-Identifier: Apache-2.0
-# SPDX-FileCopyrightText: 2014 CADQuery Developers
-# SPDX-FileNotice: Part of the CADQuery addon.
+# SPDX-FileCopyrightText: 2014 CadQuery Developers
+# SPDX-FileNotice: Part of the CadQuery addon.
 
 """Adds all of the commands that are used for the menus of the CadQuery module"""
 
@@ -99,7 +99,7 @@ class CadQueryClearOutput:
 
         if not reportView:
             return
-        
+
         # Clear the view because it gets overwhelmed sometimes and won't scroll to the bottom
         widget = reportView.widget()
         widget.clear()

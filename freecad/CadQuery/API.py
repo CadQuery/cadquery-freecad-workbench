@@ -1,5 +1,5 @@
 # SPDX-License-Identifier: Apache-2.0
-# SPDX-FileNotice: Part of the CADQuery addon.
+# SPDX-FileNotice: Part of the CadQuery addon.
 
 from .display import show_object
 
@@ -14,7 +14,7 @@ def setupAPI ():
 
         setattr(api,'show',show_object)
 
-        modules[ 'CADQuery' ] = api
+        modules[ 'CadQuery' ] = api
 
     except:
         pass

@@ -35,7 +35,7 @@ Clicking the `OK` button will create the macro/script and open it in a document 
 As a start, you can enter the following script in the macro document tab.
 
 ```python
-from CADQuery import Workplane , show
+from CadQuery import Workplane , show
 
 # Create the model that we want to display
 box = Workplane().box(10, 10, 5)

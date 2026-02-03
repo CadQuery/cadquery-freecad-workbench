@@ -1,5 +1,5 @@
 # SPDX-License-Identifier: Apache-2.0
-# SPDX-FileNotice: Part of the CADQuery addon.
+# SPDX-FileNotice: Part of the CadQuery addon.
 
 
 from .Qt.Core import Slot , Qt

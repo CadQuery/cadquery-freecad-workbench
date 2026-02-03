@@ -17,25 +17,25 @@
 
     <!--[ Dependencies ]―――――――――――――――――――――――――――――――――――――――――――――――――――――-->
 
-    <depend 
+    <depend
         version_eq = '2.5.2'
         type = 'python'
     >cadquery</depend>
-    
-    <depend 
+
+    <depend
         version_eq = '7.7.2'
-        type = 'python'    
+        type = 'python'
     >cadquery-ocp</depend>
 
-    <depend 
+    <depend
         version_eq = '0.10.0'
-        type = 'python'    
+        type = 'python'
     >build123d</depend>
 
     <!--[ Info ]―――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――-->
 
-    <description>Build CADQuery models withing FreeCAD.</description>
-    <name>CADQuery</name>
+    <description>Build CadQuery models withing FreeCAD.</description>
+    <name>CadQuery</name>
 
     <!--[ Tags ]―――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――-->
 
@@ -58,13 +58,13 @@
 
     <!--[ Licenses ]―――――――――――――――――――――――――――――――――――――――――――――――――――――――――-->
 
-    <license 
+    <license
         file = 'LICENSE'
     >Apache-2.0</license>
 
     <!--[ Icon ]―――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――-->
 
-    <icon>freecad/CADQuery/icons/CQ_Logo.svg</icon>
+    <icon>freecad/CadQuery/icons/CQ_Logo.svg</icon>
 
     <!--[ Urls ]―――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――-->
 
@@ -80,7 +80,7 @@
     <url
         type = 'bugtracker'
     >https://github.com/CadQuery/cadquery-freecad-workbench/issues</url>
-    
+
     <url
         type = 'discussion'
     >https://github.com/CadQuery/cadquery/discussions</url>
