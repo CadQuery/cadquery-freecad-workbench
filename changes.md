@@ -1,6 +1,11 @@
 Changes
 =======
 
+v2.2.0
+-----
+
+    * Module Structure + Licensing + Manifest by @PhoneDroid in https://github.com/CadQuery/cadquery-freecad-workbench/pull/171
+
 v2.1.1
 -----
 
